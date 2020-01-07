@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Im Lab's PredictDB Data Repository</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="Jiamao Zheng, Hae Kyung Im">
+        <meta name="description" content="PredictDB">
+        <link rel="shortcut icon" href="http:/aws.amazon.com/favicon.ico">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css">
+        <link rel="stylesheet" href="/css/predictdb.css">
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.2.0/bootbox.min.js"></script>
+        <script src="http://sdk.amazonaws.com/js/aws-sdk-2.0.13.min.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.5.0.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+        <script src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+        <script src="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+        <script type="text/javascript" src="/js/s3.js"> </script>
+    </head>
+
+    <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="Nav">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://predictdb.org"><strong>PredictDB</strong></a>
+          </div>
+          <div class="collapse navbar-collapse btn-group" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="http://predictdb.org"><strong>Home</strong></a></li>
+                <li><a href="/News.html"><strong>News</strong></a></li>
+                <li><a href="/FAQ.html"><strong>FAQ</strong></a></li>
+                <li><a href="/Contact.html"><strong>Contact Us</strong></a></li>
+            </ul>
+           </div>
+         </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                    <h1><b>News &amp; Updates</b></h1>
+                        <hr />
+                        <h2><strong>December 11, 2019</strong></h2>
+                        <h3>GTEx V8 Model Release</h3>
+                        <p>We have recently published a new set of prediction models trained on GTEx v8 data
+                        (as part of efforts detailed in this <a href="https://www.biorxiv.org/content/10.1101/814350v1" target="_blank">preprint</a>.
+                        We have overhauled the model construction,
+                        incorporating posterior inclusion probabilities and global patterns of tissue sharing,
+                        while also benefiting from larger sample sizes. We cover both expression and alternate splicing mechanisms.
+                        We are very excited about these new models and the potential for new discoveries.
+                        However, these models require additional GWAS preprocessing in some public GWAS studies, which we describe here.</p>
+
+                        <p>We are happy to announce the user-friendly tutorial and detailed documentation.</p>
+
+                        <p>Our new recommended models use fine-mapped variants (as computed by <a href="https://github.com/xqwen/dap" target="_blank">DAP-G</a>).
+                        These variants have a high probability of being causal for QTL.
+                        The model effect sizes are computed leveraging cross-tissue patterns with <a href="https://github.com/stephenslab/mashr" target="_blank">MASHR</a>.
+                        These new models are parsimonious, efficient, available for more genes,
+                        and have many benefits like improved rate of colocalized associations.</p>
+
+                        <p>However, the fine-mapped variants are often missing in older GWAS,
+                        lack an rsid, and GTEx v8 is defined on hg38 genome assembly.
+                        So, additional GWAS preprocessing may be required to fully exploit the
+                        new models.
+                        As most current GWAS are defined on older genome assemblies like hg19 or
+                        hg18, “harmonizing” variants between assemblies is required.
+                        Additionally, a particular GWAS’ genotyping platform and imputation
+                        techniques might have poor intersection with GTEx v8 variants,
+                        so that imputation of missing variants is recommended. We have
+                        implemented a rich set of tools, documented in the following.</p>
+
+                        <p>For users interested in incorporating the latest GTEx v8 MASHR models, we provide:</p>
+
+                        <p>0) GTEx v8 MASHR PrediXcan models and S-MultiXcan support in this <a href="https://zenodo.org/record/3518299#.Xe_9ydF7m90" target="_blank">link</a>.
+                        (look for <em>mashr_eqtl.tar</em>, <em>mashr_sqtl.tar</em>, <em>gtex_v8_expression_mashr_snp_smultixcan_covariance.txt.gz</em>,
+                        <em>gtex_v8_splicing_mashr_snp_smultixcan_covariance.txt.gz</em> therein)</p>
+
+                        <p>1) A “best practices” guide summarising harmonization and (summary statistics) imputation,
+                        with some S-PrediXcan performance analysis on GWAS from hg17, hg18, and hg19.
+                        <a href="https://github.com/hakyimlab/MetaXcan/wiki/Best-practices-for-integrating-GWAS-and-GTEX-v8-transcriptome-prediction-models" target="_blank">Link here</a>!</p>
+
+                        <p>2) An in-depth tutorial showing all required steps to run S-PrediXcan
+                        and S-MultiXcan on a Coronary artery Disease GWAS defined on hg19.
+                        Tutorial <a href="https://github.com/hakyimlab/MetaXcan/wiki/Tutorial%3A-GTEx-v8-MASH-models-integration-with-a-Coronary-Artery-Disease-GWAS" target="_blank">here</a>.
+                        Complete data sample <a href="https://zenodo.org/record/3569954#.XfEhg9F7m90" target="_blank">here</a>.</p>
+
+                        <p>3) For users interested in individual-level PrediXcan, your input genotype files must now contain gtex ids instead of rsids.
+                        You should refer to the GTEx variant lookup table (from the GTEx portal: <a href="https://storage.googleapis.com/gtex_analysis_v8/reference/GTEx_Analysis_2017-06-05_v8_WholeGenomeSeq_838Indiv_Analysis_Freeze.lookup_table.txt.gz" target="_blank">variant lookup</a>)
+                        and map your variants appropriately.
+                        Feel free to use pre-computed mapping tables for different genome assemblies available in the tutorial from 2)</p>
+
+                        <p>Finally, we also provide Elastic Net models trained on GTEx v8 data (<a href="https://zenodo.org/record/3519321#.Xe_9mtF7m90" target="_blank">link</a>).
+                        These models are provided for compatibility reasons but are suboptimal.</p>
+
+                        <p>We are hoping these new releases will prove useful in your research.
+                        Please let us know of any comments or improvements we can make in the documentation.</p>
+                    <br>
+                    <h2><strong>January 08, 2018</strong></h2>
+                    <h3> Database release:  GTEx V7 Models available </h3>
+                    <p>                We are releasing prediction models trained on GTEx Version 7 data. Download from <a href="http://predictdb.org">here</a>. We have updated our processing pipeline, and restricted to individuals of European ancestry to obtain more reliable LD data. This reduces false positive associations in the Summary Version of PrediXcan. Because of this choice, the gain in sample size relative to V6p is modest (ranging from -18 to 89), with whole blood, LCLs and fibroblasts experiencing reduced sample size. We developed a new criteria to assess model performance. We have also decided to include prediction models for both pseudogenes and lincRNAs. For your convenience, we also include a SNP annotation file with information on the SNPs used to train the models.
+                    </p>
+                    <p>While preparing GTEx V7 prediction models, we identified a few issues in the way prediction performance was estimated in the previous release (2016-09-08 release). In aggregate, these caused the prediction model performance to be overestimated. Reassuringly, predicted expression levels and the downstream associations with phenotypes remain mostly unchanged, even though prediction weights vary slightly. However, some gene/tissue pairs are no longer considered reliable.</p> 
+                    <p> 
+                        Detailed description of the pipeline update and the effect in prediction models performance and downstream S-PrediXcan association can be found <a href="http://hakyimlab.org/post/2017/v7-v6p-analysis/" target="_blank"> here </a>.
+                    </p>
+
+                    <p> We would appreciate comments to our mailing list predixcanmetaxcan@googlegroups.com </p>
+
+                    <h2><strong>November 30th, 2016</strong></h2>
+                    <h3> How can I build my own prediction model? </h3>
+                    <p> We have recieved a number of inquiries from users about how to build their
+                    own prediction models.  All scripts to train the models are located in the
+                    GitHub repository <a href="https://github.com/hakyimlab/PredictDBPipeline" target="_blank"> here </a>.  Note
+                    that many of these scripts have to do with splitting up data and submitting
+                    jobs to the University of Chicago's HPC cluster.  The script for model training
+                    is located at <a href="https://github.com/hakyimlab/PredictDBPipeline/blob/master/scripts/GTEx_Tissue_Wide_CV_elasticNet.R" target="_blank"> here </a><br/> 
+                    <br/>
+                    We hope this proves useful and gives some insight into how the models were built. If you do build a prediction model for your own research, we encourage you to share it with the community following the publication of your main results, or sooner, if you feel comfortable.  We can then host your model on predictdb.org while giving you proper acknowledgement.</p>
+
+                    <h2><strong>November 16th, 2016</strong></h2>
+                    <h3> Database update: prediction models using 1KG SNP set </h3>
+                    <p>
+                      Today we are updating the tissue-wide prediction models trained from GTEx data
+                      which use 1000 Genomes SNPs.  There are two main differences: 
+                    </p>
+                    <p>
+                    1. The snp covariance files we had provided previously were built using a
+                    reference dataset with 1000 genomes data.  Now the covariance data is based
+                    off of the GTEx training data.  This should resolve many issues with MetaXcan
+                    not being able to utilize all snps in models.
+                    </p>
+                    <p>
+                    2. In the previous release of our GTEx 1000 Genomes models, we had mistakenly
+                    excluded some well-performing protein-coding gene models before filtering
+                    for statistical significance at the level of FDR < .05. We have now
+                    included these models in the databases. After including these genes though,
+                    some gene-tissue models that had previously just reached the threshold of
+                    statistical significance now no longer meet the necessary criteria.  These
+                    models have been dropped appropriately. As these models were not predicted to
+                    have great performance anyway, we hope that few people, if any, will miss
+                    these models.
+                    </p>
+                    <p>
+                    If you are using the GTEx 1000 Genomes models in your research, we ask you
+                    to rerun your analyses using these updated models.
+                    </p>
+                    <h2><strong>September 8th, 2016</strong></h2>
+                    <h3> Database release: prediction models using HapMap SNP set </h3>
+                    <p>After numerous requests, we have now made our prediction models using HapMap SNPs available. These are models trained on <a href="http://www.gtexportal.org" target="_blank"> GTEx's V6p data</a>, but filtered to include HapMap SNPs only. These may prove beneficial to your analysis if you are working with older data or if you are having to impute much of your genotype data in order to achieve more complete coverage with 1000 Genomes. Detailed descriptions of the databases can be found in the README files.</p>
+
+                    <h2><strong>August 30th, 2016</strong></h2>
+                    <h3> HapMap/GTEx v6p models coming soon </h3>
+                    <p>We are happy to announce the release of new and improved Transcriptome Prediction Models, based off GTEx expression data trained on 1000 Genomes. The models (and associated covariance matrices) can be downloaded from <a href="http://predictdb.org" target="_blank"> PredictDB Data Repository</a>. A more comprehensive explanation of the model changes is available at <a href="https://github.com/hakyimlab/PrediXcan/wiki" target="_blank"> PrediXcan Wiki</a>. <br/> 
+                    <br/>
+                    We will send out an email to the group once these models are made available at <a href="http://predictdb.org" target="_blank"> PredictDB Data Repository</a>, so keep an eye out in the coming days. Cheers!</p>
+                    
+                    <h2><strong>August 18th, 2016</strong></h2>
+                    <h3> Database release: New Transcriptome Models available, MetaXcan software updates </h3>
+                    <p>Since we released our updated prediction models a little over a week ago, we have received numerous requests for models that have been based on HapMap snps only instead of 1000 Genomes.  We are happy to provide these models to you, and they will likely be released in the coming days.  If you have found that you have needed to impute much of your genotype data to achieve more complete coverage of the prediction model, or if you are working with older datasets in general, it may prove beneficial to use these HapMap models instead. <br/> 
+                    <br/>
+                    We have also released a new MetaXcan version that takes advantage of these new models, and has additional output statistics such as the model's prediction performance p-value. Since the new models have a different database schema, updating to the latest MetaXcan version is required. Please note that there is no backward compatibility with the old models. <br/>
+                    <br/>
+                    Thank you all for your involvement with <a href="https://github.com/hakyimlab/PrediXcan" target="_blank"> PrediXcan </a> and <a href="https://github.com/hakyimlab/MetaXcan" target="_blank"> MetaXcan </a>, and your help and feedback. We hope that these new models will prove beneficial to your research. Cheers!
+                    </p>
+                </div>
+            </div>
+        </div>
+      <br><br><br>
+      <div class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <br>
+            <p class="copyright text-muted"> <center> <a href="https://hakyimlab.org" style="color: #FFFFFF">Im Lab</a>, Genetic Medicine, Department of Medicine,  The University of Chicago. <a href="#" style="color: #FFFFFF">Back to top</a> </center> </p>
+        </div>
+        <div class="counter">
+            <script type="text/javascript">
+            var sc_project=11075605; 
+            var sc_invisible=0; 
+            var sc_security="3fe3753b"; 
+            var scJsHost = (("https:" == document.location.protocol) ?
+            "https://secure." : "http://www.");
+            document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+            "statcounter.com/counter/counter.js'></"+"script>");
+            </script>
+            <noscript><div class="statcounter"><a title="website statistics"
+            href="http://statcounter.com/free-web-stats/" target="_blank"><img
+            class="statcounter" src="//c.statcounter.com/11075605/0/3fe3753b/0/"
+            alt="website statistics"></a></div></noscript>
+        </div>
+        <br>
+      </div>
+  </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61894206-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
