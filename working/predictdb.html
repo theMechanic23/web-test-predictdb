@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="predictdb">Predictdb</h1>
+<p>Here you can find transcriptome prediction models for the PrediXcan family of methods: S-PrediXcan, MultiXcan and S-MultiXcan. <code>.db</code> files are prediction models, usable by all methods. <code>.txt.gz</code> files are compilations of LD reference for summary-based methods (<code>S-</code> prefix). S-PrediXcan is meant to use the single-tissue LD reference files (&quot;covariances&quot;) appropriate to each model. S-MultiXcan uses single-tissue prediction models and a cross-tissue LD reference.</p>
+<h1 id="gtex-v8-models-on-eqtl-and-sqtl">GTEx v8 models on eQTL and sQTL</h1>
+<p>We have produced different families of prediction models for sQTL and eQTL, using several prediction strategies, on GTEx v8 release data.</p>
+<p>We recommend MASHR-based models below. Elastic Net-based are a safe, robust alternative with decreased power.</p>
+<h2 id="mashr-based-models">MASHR-based models</h2>
+<p>Expression and splicing prediction models with LD reference data are available in this <a href="https://zenodo.org/record/3518299">Zenodo repository</a>.</p>
+<p>Files:</p>
+<ul>
+<li><a href="https://zenodo.org/record/3518299/files/mashr_eqtl.tar?download=1">mashr_eqtl.tar</a>: PrediXcan's and S-PrediXcan's support on expression</li>
+<li><a href="https://zenodo.org/record/3518299/files/mashr_sqtl.tar?download=1">mashr_sqtl.tar</a>: PrediXcan's and S-PrediXcan's support on splicing</li>
+<li><a href="https://zenodo.org/record/3518299/files/gtex_v8_expression_mashr_snp_smultixcan_covariance.txt.gz?download=1">gtex_v8_expression_mashr_snp_smultixcan_covariance.txt.gz</a>: S-MultiXcan expression's LD reference</li>
+<li><a href="https://zenodo.org/record/3518299/files/gtex_v8_splicing_mashr_snp_smultixcan_covariance.txt.gz?download=1">gtex_v8_splicing_mashr_snp_smultixcan_covariance.txt.gz</a>: S-MultiXcan splicing's LD reference</li>
+</ul>
+<p><strong>Warning</strong>: these models are based on fine-mapped variants that may occasionally be absent in a tipical GWAS, and frequently absent in older GWAS. We have tools to address this, presented <a href="https://github.com/hakyimlab/MetaXcan/wiki/Best-practices-for-integrating-GWAS-and-GTEX-v8-transcriptome-prediction-models">here</a>. A tutorial is available <a href="https://github.com/hakyimlab/MetaXcan/wiki/Tutorial:-GTEx-v8-MASH-models-integration-with-a-Coronary-Artery-Disease-GWAS">here</a>.</p>
+<p><strong>Acknowledging these models</strong>: If you use these models in your research, please cite:</p>
+<ul>
+<li><a href="https://www.biorxiv.org/content/10.1101/814350v1">&quot;Widespread dose-dependent effects of RNA expression and splicing on complex diseases and traits&quot;</a>, Barbeira et al, 2019, preprint</li>
+<li><a href="https://www.nature.com/articles/ng.3367">&quot;A gene-based association method for mapping traits using reference transcriptome data&quot;</a>, Gamazon et al, 2015, Nature Genetics</li>
+<li><a href="https://www.nature.com/articles/s41467-018-03621-1">&quot;Exploring the phenotypic consequences of tissue specific gene expression variation inferred from GWAS summary statistics&quot;</a>, Barbeira et al, 2018, Nature Communications</li>
+</ul>
+<p>If you use S-MultiXcan, we ask you to cite:</p>
+<ul>
+<li><a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007889">&quot;Integrating predicted transcriptome from multiple tissues improves association detection&quot;</a>, Barbeira et al, 2019, PLOS Genetics</li>
+</ul>
+<h2 id="elastic-net">Elastic Net</h2>
+<p>Expression and splicing prediction models with LD references data are available in this <a href="https://zenodo.org/record/3519321#.XfqJz9l7m90">Zenodo repository</a>.</p>
+<p>Files:</p>
+<ul>
+<li><a href="https://zenodo.org/record/3519321/files/elastic_net_eqtl.tar?download=1">elastic_net_eqtl.tar</a>: PrediXcan's and S-PrediXcan's support on expression</li>
+<li><a href="https://zenodo.org/record/3519321/files/elastic_net_sqtl.tar?download=1">elastic_net_sqtl.tar</a>: PrediXcan's and S-PrediXcan's on splicing</li>
+<li><a href="https://zenodo.org/record/3519321/files/gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz?download=1">gtex_v8_expression_elastic_net_snp_smultixcan_covariance.txt.gz</a>: S-MultiXcan expression's LD reference</li>
+<li><a href="https://zenodo.org/record/3519321/files/gtex_v8_splicing_elastic_net_snp_smultixcan_covariance.txt.gz?download=1">gtex_v8_splicing_elastic_net_snp_smultixcan_covariance.txt.gz</a>: S-MultiXcan splicing's LD reference</li>
+</ul>
+<p><strong>Acknowledging these models</strong> : If you use these models in your research, we ask you to cite:</p>
+<ul>
+<li><a href="https://www.biorxiv.org/content/10.1101/787903v1">&quot;The GTEx Consortium atlas of genetic regulatory effects across human tissues&quot;</a>, Aguet et al, 2019, preprint</li>
+<li><a href="https://www.nature.com/articles/ng.3367">&quot;A gene-based association method for mapping traits using reference transcriptome data&quot;</a>, Gamazon et al, 2015, Nature Genetics</li>
+<li><a href="https://www.nature.com/articles/s41467-018-03621-1">&quot;Exploring the phenotypic consequences of tissue specific gene expression variation inferred from GWAS summary statistics&quot;</a>, Barbeira et al, 2018, Nature Communications</li>
+</ul>
+<p>If you use S-MultiXcan, we ask you to cite:</p>
+<ul>
+<li><a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007889">&quot;Integrating predicted transcriptome from multiple tissues improves association detection&quot;</a>, Barbeira et al, 2019, PLOS Genetics</li>
+</ul>
+<h1 id="gtex-v7-expression-models">GTEx v7 Expression models</h1>
+<p>Expression prediction models with LD reference data ar available in this <a href="https://zenodo.org/record/3572799">Zenodo repository</a>. The underlying algorithm is Elastic Net.</p>
+<ul>
+<li><a href="https://zenodo.org/record/3572799/files/GTEx-V7_HapMap-2017-11-29.tar.gz?download=1">GTEx-V7_HapMap-2017-11-29.tar.gz</a>: Expression prediction models and LD reference on single tissues.</li>
+<li><a href="https://zenodo.org/record/3572799/files/snp_covariance_v7.txt.gz?download=1">snp_covariance_v7.txt.gz</a>: S-MultiXcan's LD compilation</li>
+</ul>
+<p>Additional support information and details are available in the Zenodo repository. You can find release notes <a href="http://hakyimlab.org/post/2017/v7-v6p-analysis/">in this link</a>.</p>
+<p><strong>Acknowledging these models</strong>: If you use these models in your research, we ask you to cite:</p>
+<ul>
+<li><a href="https://www.nature.com/articles/ng.3367">&quot;A gene-based association method for mapping traits using reference transcriptome data&quot;</a>, Gamazon et al, 2015, Nature Genetics</li>
+<li><a href="https://www.nature.com/articles/s41467-018-03621-1">&quot;Exploring the phenotypic consequences of tissue specific gene expression variation inferred from GWAS summary statistics&quot;</a>, Barbeira et al, 2018, Nature Communications</li>
+</ul>
+<p>If you use S-MultiXcan, we ask you to cite:</p>
+<ul>
+<li><a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007889">&quot;Integrating predicted transcriptome from multiple tissues improves association detection&quot;</a>, Barbeira et al, 2019, PLOS Genetics</li>
+</ul>
+<h1 id="gtex-v6-expression-models">GTEx v6 Expression models</h1>
+<p>Expression prediction models with LD reference data are available in this <a href="https://zenodo.org/record/3572842#.XfuyLNl7m90">Zenodo repository</a>.</p>
+<ul>
+<li><a href="https://zenodo.org/record/3572842/files/GTEx-V6p-1KG-2016-11-16.tar.gz?download=1">GTEx-V6p-1KG-2016-11-16.tar.gz</a>: Expression prediction models and LD reference, using variants defined in 1000 Genomes</li>
+<li><a href="https://zenodo.org/record/3572842/files/GTEx-V6p-HapMap-2016-09-08.tar.gz?download=1">GTEx-V6p-HapMap-2016-09-08.tar.gz</a>: Expression prediction models and LD reference, using variants defined in Hapmap CEU track</li>
+<li><a href="https://zenodo.org/record/3572842/files/snp_covariance_v6p.txt.gz?download=1">snp_covariance_v6p.txt.gz</a>: S-MultiXcan LD reference for HapMap models</li>
+</ul>
+<p>Additional support information and details are available in the Zenodo repository. Please check <a href="http://hakyimlab.org/post/2017/v7-v6p-analysis/">this link</a>, about the GTEx v7 models, for a few caveats found in GTEx v6 models.</p>
+<p><strong>Acknowledging these models</strong>: If you use these models in your research, we ask you to cite:</p>
+<ul>
+<li><a href="https://www.nature.com/articles/ng.3367">&quot;A gene-based association method for mapping traits using reference transcriptome data&quot;</a>, Gamazon et al, 2015, Nature Genetics</li>
+<li><a href="https://www.nature.com/articles/s41467-018-03621-1">&quot;Exploring the phenotypic consequences of tissue specific gene expression variation inferred from GWAS summary statistics&quot;</a>, Barbeira et al, 2018, Nature Communications</li>
+</ul>
+<p>If you use S-MultiXcan, we ask you to cite:</p>
+<ul>
+<li><a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007889">&quot;Integrating predicted transcriptome from multiple tissues improves association detection&quot;</a>, Barbeira et al, 2019, PLOS Genetics</li>
+</ul>
+<h1 id="models-from-collaborators-and-other-sources">Models from collaborators and other sources:</h1>
+<h2 id="mesa-models">MESA models</h2>
+<p>Single-tissue expression prediction models with LD reference data are available in this <a href="https://zenodo.org/record/3572815#.XfqOstl7m90">Zenodo repository</a>. The underlying algorithm is Elastic Net on MESA multi-ethnic cohort.</p>
+<p>These models were presented in <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007586">&quot;Genetic architecture of gene expression traits across diverse populations&quot;</a>, Mogil et al, 2018, PLOS Genetics. Please cite if you find these useful.</p>
+<h2 id="commonmind-consortium">CommonMind consortium</h2>
+<p>Single-tissue expression prediction models with LD reference data are available in this <a href="https://github.com/laurahuckins/CMC_DLPFC_prediXcan">GitHub repository</a>. The underlying algorithm is Elastic Net.</p>
+<p>These models were presented in <a href="https://www.nature.com/articles/s41588-019-0364-4">&quot;Gene expression imputation across multiple brain regions provides insights into schizophrenia risk</a>, Huckins et al, 2019, Nature Genetics. Please cite if you find these useful.</p>
+<h2 id="epixcan-models">EpiXcan Models</h2>
+<p>Expression prediction models with LD reference data are available in this <a href="https://zhangw17.u.hpc.mssm.edu/epixcan/about.php#dl">website</a>. The models were trained on Common Mind Consortium, GTEx, and STARNET consortiums. The underlying algorithm is Elastic Net, informed by epigenetic data.</p>
+<p>These models were presented in <a href="https://www.nature.com/articles/s41467-019-11874-7">&quot;Integrative transcriptome imputation reveals tissue-specific and shared biological mechanisms mediating susceptibility to complex traits&quot;</a>, Zhaneg et al, 2019, Nature Communications. Please cite if you find these useful.</p>
+</body>
+</html>
