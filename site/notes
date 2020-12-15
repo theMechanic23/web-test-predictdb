@@ -1,5 +1,0 @@
-aws s3 sync ~/Dropbox/Im_lab/2017/PredictDB-Web/PredictDB/predictdb.org s3://predictdb.org
-
-aws s3 sync ~/Dropbox/Im_lab/2017/PredictDB-Web/PredictDB/predictdb.org s3://predictdb.hakyimlab.org
-
-aws s3 sync ~/Dropbox/Im_lab/2017/PredictDB-Web/PredictDB/predictdb.org s3://test-imlab.org
